@@ -1,7 +1,7 @@
 
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
+const htmlWebpackPlugin = require('html-webpack-plugin');
+var con = {
   entry: {
     main: './src/script/main.js',
     main0: './src/script/main0.js',
@@ -13,13 +13,8 @@ module.exports = {
     filename: 'bundle_[name].js',
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: '../../indexoutput1.html',
-      template: 'index.html',
-      inject: 'head',
-      //chunks: ['main', 'main0', 'main1'],
-    }),
-    new HtmlWebpackPlugin({
+
+    new htmlWebpackPlugin({
       //这是要输出的模版的地址
       filename: '../../indexoutput2.html',
       //这是要合并的页面
@@ -29,6 +24,8 @@ module.exports = {
       //要引进的entry
       chunks: ['main', 'main0', 'main1'],
       //excludeChunks:[]
+      title: '2'
     }),
   ]
 }
+module.exports = con
